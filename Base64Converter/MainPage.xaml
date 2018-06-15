@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:Base64Converter"
+             xmlns:viewModel="clr-namespace:Base64Converter.ViewModel"
+             x:Class="Base64Converter.MainPage"
+             Title="Base64Converter">
+    <StackLayout 
+        HorizontalOptions="Fill"
+        VerticalOptions="Center"
+        Padding="10">
+
+        <StackLayout.BindingContext>
+            <viewModel:MainViewModel />
+        </StackLayout.BindingContext>
+        
+        <Label Text="Source:"  />
+        <Editor Text="{Binding SourceString, Mode=TwoWay}"/>
+        
+        <StackLayout Orientation="Horizontal">
+            <Button HorizontalOptions="FillAndExpand" Text="⇣Encode" Command="{Binding EncodeCommand}" BackgroundColor="Green" TextColor="White"/>
+            <Button HorizontalOptions="FillAndExpand" Text="⇡Decode" Command="{Binding DecodeCommand}" BackgroundColor="Teal" TextColor="White"/>
+        </StackLayout>
+        
+        <Label Text="Base64 String:"  />
+        <Editor Text="{Binding Base64String, Mode=TwoWay}" />
+
+    </StackLayout>
+</ContentPage>
